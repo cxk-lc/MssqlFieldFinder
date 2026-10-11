@@ -1,0 +1,31 @@
+# ==============================================================================
+#  requirements-build.txt — 构建期依赖（只用于打包成 exe）
+#
+#  用途：手工还原/搭建打包环境。日常打包直接双击 bat\build.bat 即可，
+#        缺 PyInstaller 时脚本会自动装（见 bat\build.bat 的 :try 探测逻辑）。
+#  安装：python -m pip install -r requirements-build.txt
+#
+#  排列：-r 包含项按惯例放在最前（它不是库），随后按库名字母顺序排列。
+# ==============================================================================
+
+# 先装运行期依赖：PyInstaller 必须能 import pyodbc，才能把它打进产物
+-r requirements.txt
+
+# ------------------------------------------------------------------------------
+# pyinstaller —— 把程序打成单文件 exe
+#
+# 下限 >=6.0
+#   MssqlFieldFinder.spec 采用 PyInstaller 6 的 spec 写法：
+#   使用 Analysis / PYZ / EXE 全局对象，并传了 6.x 才有的 hooksconfig 参数。
+#
+# 上限 <7
+#   实测本机 6.22.3 在管理员终端下已打印提示：「PyInstaller 7.0 将禁止以管理员
+#   身份运行」。大版本还可能调整 spec 语义，而本项目 spec 是手工维护的，
+#   一旦被无人值守升到 7.x，bat\build.bat 有直接失败的风险。要升级请先本地验证。
+#
+# 传递依赖不单独固定
+#   pyinstaller-hooks-contrib / pefile / altgraph / pywin32-ctypes /
+#   setuptools / packaging 由 pip 自动解析。手工写进本文件反而容易与
+#   PyInstaller 自身的版本要求冲突（本项目实测会装上 7 个包，全部自动解析）。
+# ------------------------------------------------------------------------------
+pyinstaller>=6.0,<7
