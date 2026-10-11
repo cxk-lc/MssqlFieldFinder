@@ -7,6 +7,7 @@
 
 ```
 D:/Documents/WorkBuddy/2026-10-09-13-54-26/
+├── README.md               仓库首页：功能 / 参数详解 / 打包步骤 / FAQ
 ├── main.py                 入口
 ├── MssqlFieldFinder.spec   PyInstaller 构建描述（构建参数的唯一来源）
 ├── requirements.txt        运行期依赖

@@ -137,6 +137,8 @@ $RECYCLE.BIN/
 #    bat/run.bat             源码启动脚本
 #    bat/诊断环境.bat         环境诊断脚本
 #    tools/                   开发辅助脚本（进程内/外部窗口截图），非运行时依赖但有复用价值
+#    README.md                仓库首页说明。**刻意放在根目录**：GitHub 只认根目录的
+#                             README 作为仓库门面，是「.md 统一放 docs/」的唯一例外
 #    docs/*.md               设计、计划、审查、交付报告与打包说明
 #    docs/images/*.png       真实窗口截图，作为界面证据随文档一起提交
 #    main.py / src/ / tests/  程序本体与测试

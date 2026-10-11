@@ -8,6 +8,7 @@
 
 | 路径 | 说明 |
 | --- | --- |
+| **`README.md`** | **仓库首页：功能、参数详解、打包步骤、FAQ（放在根目录，GitHub 门面）** |
 | **`MssqlFieldFinder\MssqlFieldFinder-v1.6.0.exe`** | **打包产物：单文件可执行程序，双击即用（10.2 MB）** |
 | `bat\build.bat` | 一键打包脚本（自动找环境 → 读名称与版本 → 打包 → 报产物与 SHA256） |
 | `bat\run.bat` | 从源码启动（开发调试用，自动探测可用解释器） |
@@ -31,6 +32,7 @@
 
 ```
 项目根\
+├── README.md                   仓库首页说明
 ├── main.py                     入口
 ├── MssqlFieldFinder.spec       构建描述（构建参数的唯一来源）
 ├── requirements.txt            运行期依赖
